@@ -1,44 +1,69 @@
-import { createContext, useReducer } from "react";
+import { useReducer } from "react";
+import { PostListContext } from './PostListContext.jsx';
+
+// Default seed data must appear before usage (avoid TDZ ReferenceError)
+const DEFAULT_POST_LIST = [
+    {
+        id: "1",
+        title: "Going to Mumbai",
+        body: "Hi",
+        reactions: 2,
+        userId: "user-9",
+        tags: ["vacations", "Mumbai", "Enjoying"],
+    },
+    {
+        id: "2",
+        title: "Going to Varanasi",
+        body: "Hard to believe",
+        reactions: 2,
+        userId: "user-8",
+        tags: ["vacations", "Hawaii", "Enjoying"],
+    },
+];
 
 
-const PostList = createContext({
-    postList: [],
-    addPost: () => { },
-    deletePost: () => { },
-});
-
-const postlistReducer = (currentpostList, action) => {
-    return currentpostList;
-}
-
+const postlistReducer = (state, action) => {
+    switch (action.type) {
+        case "ADD_POST":
+            return [action.payload, ...state];
+        case "DELETE_POST":
+            return state.filter((p) => p.id !== action.payload);
+        default:
+            return state;
+    }
+};
 
 const PostListProvider = ({ children }) => {
-
-    const [postlist, dispatchPostList] = useReducer(postlistReducer, []
+    const [postlist, dispatchPostList] = useReducer(
+        postlistReducer,
+        DEFAULT_POST_LIST
     );
 
-    const addPost = () => {
+    const addPost = ({ title, body, tags }) => {
+        const newPost = {
+            id: Date.now().toString(),
+            title: title.trim(),
+            body: body.trim(),
+            reactions: 0,
+            userId: "user-local",
+            tags: tags
+                .split(",")
+                .map((t) => t.trim())
+                .filter(Boolean),
+        };
+        dispatchPostList({ type: "ADD_POST", payload: newPost });
+    };
 
+    const deletePost = (postId) => {
+        dispatchPostList({ type: "DELETE_POST", payload: postId });
+    };
 
-    }
+    return (
+        <PostListContext.Provider value={{ postlist, addPost, deletePost }}>
+            {children}
+        </PostListContext.Provider>
+    );
+};
 
-    const delPost = () => {
+export default PostListProvider;
 
-
-
-    }
-
-
-
-    return <PostList.Provider value={
-        {
-            postlist: postlist, // or we can write normal postlist;
-            addPost: addPost,
-            delPost: delPost
-        }
-    }>
-        {children}
-    </PostList.Provider>
-}
-
-export default PostListProvider

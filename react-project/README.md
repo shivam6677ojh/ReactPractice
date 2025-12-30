@@ -1,12 +1,48 @@
-# React + Vite
+# Mini Post App (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple mini project demonstrating a posts feed with create, delete and detail view functionality using React 19, Vite, Tailwind CSS and React Router.
 
-Currently, two official plugins are available:
+## Features
+- List posts with tags & reactions
+- Create new post (title, body, tags)
+- Delete a post directly from its card
+- View full post details on a dedicated page (`/showmore/:id`)
+- Responsive layout with header, sidebar toggle and footer
+- Global state via React Context + `useReducer`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Structure
+```
+src/
+	components/
+		Post.jsx          # Post card with delete + link
+		PostList.jsx       # Lists posts from context
+		CreatePost.jsx     # Form to add post
+		ShowMore.jsx       # Detail page
+		Header.jsx Footer.jsx Sidebar.jsx
+	store/
+		PostListContext.jsx    # Context definition
+		Post-list-Store.jsx    # Provider + reducer
+	App.jsx
+	main.jsx
+```
 
-## Expanding the ESLint configuration
+## Running
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Adding a Post
+Use the sidebar to switch to CreatePost, fill Title, Body and comma-separated Tags, then submit. Post appears at top of the list.
+
+## Deleting
+Click the trash icon on a card to remove it.
+
+## Extending Ideas
+- Persist posts (localStorage / backend API)
+- Reactions increment button
+- Edit post functionality
+- Tag filtering & search
+
+---
+Generated and completed enhancements to move beyond the base Vite template.
