@@ -37,9 +37,8 @@ const Post = ({ post }) => {
                 </p>
 
                 {/* Reactions */}
-                <p className="font-semibold text-gray-800 mb-3">
-                    ❤️ {post.reactions} Reactions
-                </p>
+                <p>👍 {post.reactions.likes} | 👎 {post.reactions.dislikes}</p>
+
 
                 {/* Tags */}
                 <div className="mb-4">

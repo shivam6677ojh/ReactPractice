@@ -27,6 +27,7 @@ export default function App() {
                   {selectedTab === "Home" ? <PostList /> : <CreatePost />}
                 </main>
               </div>
+
               <Footer />
             </div>
           }

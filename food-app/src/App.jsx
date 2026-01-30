@@ -1,42 +1,53 @@
-import Header from "./components/header.jsx";
-import InputBox from "./components/InputBox.jsx";
-import FoodList from "./components/FoodList.jsx";
-import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+import User from "./components/user";
+import DummyApi from "./components/DummyApi";
+import FetchApi from "./components/FetchApi";
+import Forms from "./components/Forms.jsx";
+import Practice from "./components/Practice.jsx";
 
-function App() {
-  let [foodItems, setfoodItems] = useState([
-    { name: "Ghee", bought: false },
-    { name: "Green Vegetable", bought: false },
-    { name: "Roti", bought: false },
-    { name: "Dal", bought: false }
-  ]);
+const App = () => {
+    // const navigate = useNavigate();
 
-  const handlechange = (event) => {
-    if (event.key === "Enter") {
-      let newFooditem = event.target.value;
-      setfoodItems([...foodItems, { name: newFooditem, bought: false }]);
-      event.target.value = null;
+    
+    function name(){
+    
+            return "hi"
+    
     }
-  };
 
-  // Toggle bought flag for the clicked item
-  const toggleBought = (index) => {
-    setfoodItems((prevItems) =>
-      prevItems.map((item, i) =>
-        i === index ? { ...item, bought: !item.bought } : item
-      )
+    
+    function age(){
+    
+            return 12;
+    
+    }
+
+    return (
+        <div>
+            {/* <nav style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+                <button onClick={() => navigate("/")}>Home</button>
+                <button onClick={() => navigate("/about")}>About</button>
+                <button onClick={() => navigate("/contact")}>Contact</button>
+            </nav> */}
+
+            {/* <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path = "/user" element = {<User />} />
+            </Routes> */}
+
+            {/* <DummyApi /> */}
+            {/* <FetchApi /> */}
+            {/* <Forms /> */}
+            <Practice  name={name()} age={age()}/>
+
+
+        </div>
     );
-  };
+};
 
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="border p-4 rounded-lg bg-white w-80">
-        <Header />
-        <InputBox handleKeyDown={handlechange} />
-        <FoodList items={foodItems} toggleBought={toggleBought} />
-      </div>
-    </div>
-  );
-}
-
-export default App
+export default App;

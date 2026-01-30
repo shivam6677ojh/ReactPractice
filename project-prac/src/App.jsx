@@ -5,6 +5,8 @@
 // import { AuthContext } from './context/AuthContext';
 // import NavBar from './components/NavBar';
 
+import { use, useState } from "react"
+
 // function App() {
 
 //   // const objectcard = [
@@ -179,8 +181,6 @@
 //         <div>
 
 //         </div>
-
-
 //     </>
 //   )
 // }
@@ -189,7 +189,7 @@
 
 
 
-// for context api use
+// // ***************** for context api use ***************************************
 // import React from "react";
 // import { AllStateProvider } from "./context/AllState";
 // // import { AuthProvider } from "./context/AuthContext";
@@ -221,15 +221,135 @@
 // export default App;
 
 
-import React from "react";
 
+// useeeffect and usestate example
+// import React, { useEffect, useState } from "react";
+
+
+// const App = () => {
+
+//     const [value, setValue] = useState(0);
+
+//     useEffect(() => {
+//         const Increment = setInterval(() => {
+//             setValue((pre) => prev + 1);
+            
+//         }, 1000);
+
+//         return () => {
+//             clearInterval(Increment);
+//         };
+//     }, [])
+//     return (
+//         <>
+//             <h1>Increment: {value}</h1>
+//         </>
+//     )
+// };
+
+// export default App;
+
+
+// const todo app
+
+// import React, { useState } from "react";
+
+// const App = () => {
+
+//     const [items, setItems] = useState([]); 
+//     const [inputValue, setInputValue] = useState("");
+
+
+    
+
+//     const addItem = () => {
+//         if (inputValue.trim() !== "") {
+//             setItems([...items, inputValue]);
+//             setInputValue("");
+//         }
+//     };
+    
+//     return (
+//         <div className="p-4">
+//             <h1 className="text-2xl font-bold mb-4">Todo App</h1>
+//             <div className="mb-4">
+//                 <input
+//                     type="text"
+//                     value={inputValue}
+//                     onChange={(e) => setInputValue(e.target.value)}
+//                     className="border p-2 mr-2"
+//                     placeholder="Enter a task"
+//                 />
+//                 <button
+//                     onClick={addItem}
+//                     className="bg-blue-500 text-white p-2 rounded"
+//                 >
+//                     Add Task
+//                 </button>
+//             </div>
+//             <ul className="list-disc pl-5">
+//                 {items.map((item, index) => (
+//                     <li key={index} className="mb-2">{item}</li>
+//                 ))}
+//             </ul>
+//         </div>
+//     );
+// };
+
+// export default App;
+
+
+// Toggle message visibility example
+// import React from "react"
+
+// const App = () => {
+//     const [visible, setvisible] = useState(false);
+
+//     return (
+//         <div className="p-4">
+//             <button 
+//                 className="bg-blue-500 text-white p-2 rounded mb-4"
+//                 onClick={() => setvisible(!visible)}
+//             >
+//                 {visible ? "Hide" : "Show"} Message
+//             </button>
+            
+//             {visible && (
+//                 <div className="bg-green-200 p-4 rounded">
+//                     <h2 className="text-xl font-bold">Hello, this is a toggled message!</h2>
+//                     <p>This message is now visible. Click the button again to hide it.</p>
+//                 </div>
+//             )}
+//         </div>
+//     );
+// };
+
+// export default App;
+
+
+// import React from "react"
+// import ColorSwitcher from "./components/ColorSwitcher";
+
+
+// const App = () => {
+//     return <>
+//         <ColorSwitcher />
+//     </>
+// }
+
+// export default App;
+
+
+import React from 'react'
+import Calculator from "./components/Calculator"
+import ShowData from "./components/ShowData"
 
 const App = () => {
-    return (
-        <>
-           
-        </>
-    )
-};
+  return (
+    // <Calculator />/
+    <ShowData />
+  )
+}
 
-export default App;
+export default App
+
