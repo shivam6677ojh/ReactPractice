@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { AllState } from '../context/AllState'
 
 const Decrement = () => {
-    const { Decrement } = useContext(AllState)
+    const { setDecrement } = useContext(AllState)
     return (
-        <button onClick={() => Decrement()}>Decrement</button>
+        <button onClick={setDecrement}>Decrement</button>
     )
 }
 

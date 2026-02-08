@@ -4,7 +4,7 @@ import { AllState } from '../context/AllState';
 const Increment = () => {
     const { setIncrement } = useContext(AllState);
     return (
-        <button onClick={() => setIncrement()}>Increment</button>
+        <button onClick={setIncrement}>Increment</button>
     )
 }
 

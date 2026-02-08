@@ -6,6 +6,7 @@ import Hero from './components/Hero.jsx'
 import Increment from './components/Increment.jsx'
 import Reset from './components/Reset.jsx'
 import ShowState from './components/ShowState.jsx'
+import { AllStateProvider } from './context/AllState.jsx'
 
 function App() {
   
@@ -13,10 +14,12 @@ function App() {
     <>
     {/* <Header />
     <Hero /> */}
-    <ShowState />
-    <Increment />
-    <Decrement />
-    <Reset />
+    <AllStateProvider>
+      <ShowState />
+      <Increment />
+      <Decrement />
+      <Reset />
+    </AllStateProvider>
     </>
   )
 }

@@ -1,23 +1,25 @@
 import React, { createContext, useState } from "react";
 
-
 export const AllState = createContext({
-    Increment: () => { },
-    Decrement: () => { },
+    setIncrement: () => {},
+    setDecrement: () => {},
     count: 0,
-    Reset: () => { }
+    Reset: () => {}
 });
 
-
-export const AllStateProvider = ({children}) => {
-    const [count, setCount]  = useState(0);
+export const AllStateProvider = ({ children }) => {
+    const [count, setCount] = useState(0);
 
     const value = {
-        setIncrement: () => setCount(count + 1),
-        setDecrement: () => setCount(count + 1),
+        count, // ✅ MUST PASS THIS
+        setIncrement: () => setCount(prev => prev + 1),
+        setDecrement: () => setCount(prev => prev - 1), // ✅ FIXED
         Reset: () => setCount(0),
-    }
+    };
 
-
-    return <AllState.Provider value={value}>{children}</AllState.Provider>
-}
+    return (
+        <AllState.Provider value={value}>
+            {children}
+        </AllState.Provider>
+    );
+};
