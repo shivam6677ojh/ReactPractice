@@ -13,8 +13,6 @@ const ShowData = () => {
     }
 
 
-
-
     return (
         <div>
             <form onSubmit={handleaction} action="#">
