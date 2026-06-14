@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { CounterContext } from '../Context/CounterContext'
+import { CounterContext } from '../context/CounterContext'
 
 const Reset = () => {
-    const { Reset } = useContext(CounterContext)
+    const {Reset} = useContext(CounterContext)
     return (
         <button onClick={Reset}>Reset</button>
     )

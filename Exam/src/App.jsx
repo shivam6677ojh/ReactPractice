@@ -1,58 +1,25 @@
-// import './App.css'
-// import { CounterStateProvider } from './Context/CounterContext'
-// import Increment from './Components/Increment'
-// import Counter from './Components/Counter'
-// import Decrement from './Components/Decrement'
-// import Reset from './Components/Reset'
-
-// function App() {
-
-//   return (
-//       <CounterStateProvider>
-
-//           <div>welcome!!</div>
-//           <Counter />
-//           <Increment />
-//           <Decrement />
-//           <Reset />
-
-
-
-//       </CounterStateProvider>
-//   )
-// }
-
-// export default App
-
-
-// Dealing with froms
-// import React from 'react'
-// import UseContext from './Components/UseContext'
-
-// const App = () => {
-//   return (
-//     <div><UseContext /></div>
-//   )
-// }
-
-// export default App
-
-
 import React from 'react'
-import Form from './Components/Form'
-import DataPrint from './Components/DataPrint'
-// import CounterReducer from './Components/CounterReducer'
+import Task1 from './Components/Task1.jsx'
+import Task2 from './Components/Task2.jsx'
+import Task3 from './Components/Task3.jsx'
+import Calculator from './Components/Calculator.jsx'
+import Task4 from './Components/Task4.jsx'
+import Task5 from './Components/Task5.jsx'
+import Practice from './Components/Practice.jsx'
+import Task6 from './Components/Task6.jsx'
 
 const App = () => {
   return (
-
     <div>
+      {/* <Task1 />
+      <Task2 />
+      <Task3 /> */}
+      {/* <Calculator /> */}
+      {/* <Task4 />
+      <Task5 /> */}
 
-      {/* <Form /> */}
-      <DataPrint />
-
-      {/* <CounterReducer /> */}
-
+      {/* <Practice /> */}
+      <Task6 />
     </div>
   )
 }

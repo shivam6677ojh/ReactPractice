@@ -343,11 +343,13 @@ import { use, useState } from "react"
 import React from 'react'
 import Calculator from "./components/Calculator"
 import ShowData from "./components/ShowData"
+import TodoApp from "./components/Todo"
 
 const App = () => {
   return (
     // <Calculator />/
-    <ShowData />
+    // <ShowData />
+    <TodoApp />
   )
 }
 
